@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About ProLynk</title>
+    <meta name="description" content="ProLynk connects clients with vetted professionals for home and personal services with secure payments and in‑app chat." />
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --muted: #94a3b8;
+            --text: #e5e7eb;
+            --primary: #3b82f6;
+            --accent: #22d3ee;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: linear-gradient(180deg, var(--bg), #0b1023 60%);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            text-align: center;
+            padding: 32px 0 8px;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .tag {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+    /* Make the hero tagline white */
+    .hero .tag { color: #ffffff; }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(12, 1fr);
+            margin: 24px 0;
+        }
+
+        .card {
+            grid-column: 1 / -1;
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        @media (min-width: 800px) {
+            .half {
+                grid-column: span 6;
+            }
+
+            .third {
+                grid-column: span 4;
+            }
+        }
+
+        h2 {
+            font-size: 22px;
+            margin: 0 0 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 8px 0 0;
+            color: #cdd5e1;
+        }
+
+        ul {
+            margin: 8px 0 0 18px;
+            color: #cdd5e1;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(1200px 400px at 50% -10%, rgba(59,130,246,0.25), transparent), radial-gradient(800px 300px at 80% -10%, rgba(34,211,238,0.2), transparent);
+        }
+
+            .hero h1 {
+                font-size: 40px;
+                margin: 6px 0 10px;
+            }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.05);
+            color: #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 14px;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 0; /* handled by .cta-group */
+            padding: 10px 16px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .cta-group {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: nowrap; /* keep in one row */
+            overflow-x: auto;  /* allow horizontal scroll on very small screens */
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
+            margin-top: 14px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            padding: 18px 0 32px;
+        }
+
+        .kicker {
+            font-size: 12px;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .list-tag {
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            color: #a3bffa;
+        }
+
+        .logo {
+            height: 220px;
+            width: auto;
+            margin-bottom: 12px;
+            user-select: none;
+        }
+
+        /* brief highlight when navigating to a section */
+        .flash {
+            box-shadow: 0 0 0 3px rgba(147,197,253,0.18) inset, 0 6px 18px rgba(59,130,246,0.08);
+            transition: box-shadow 0.35s ease;
+        }
+
+    /* secondary hero tagline */
+    .subtag { margin-top: 6px; font-size: 14px; }
+
+        .video {
+            width: 100%;
+            max-height: 520px;
+            border-radius: 12px;
+            display: block;
+            background: #0b1226;
+        }
+        figure.demo { margin: 0; }
+        .caption {
+            text-align: center;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        /* Collapsible video section */
+        details.collapse { width: 100%; }
+        details.collapse summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+            font-size: 22px;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin: 0 0 6px 0;
+        }
+        details.collapse summary::-webkit-details-marker { display: none; }
+        details.collapse summary:after {
+            content: "▸";
+            float: right;
+            color: #93c5fd;
+            transition: transform 0.15s ease;
+        }
+        details.collapse[open] summary:after { transform: rotate(90deg); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero card">
+            <img class="logo" src="/logo.png" alt="ProLynk logo" />
+            <span class="pill">Verified pros • In‑app chat • Secure payments</span>
+            <p class="tag">The simplest way to book trusted professionals for home, events and cultural services.</p>
+            <p class="subtag muted">Rooted in community. Powered by trust. Built for you.</p>
+            <div class="cta-group">
+                <a id="btn-about" class="cta" href="#about" title="What is ProLynk?">About</a>
+                <a id="btn-promo" class="cta" href="#promo" title="Watch the promo video">Promo</a>
+                <a id="btn-demos" class="cta" href="#demos" title="See demo videos">App in action</a>
+                <a id="btn-how" class="cta" href="#how" title="How ProLynk works">How it works</a>
+                <a id="btn-compare" class="cta" href="#compare" title="Platform comparison">Compare</a>
+            </div>
+        </header>
+
+        <section class="grid">
+            <article id="about" class="card half">
+                <h2>What is ProLynk?</h2>
+                <p>
+                    ProLynk connects clients with vetted, local professionals for services like cleaning, repairs,
+                    beauty, tutoring, and more. Book in minutes, chat in‑app, and pay securely using Stripe.
+                </p>
+                <ul>
+                    <li><span class="list-tag">Fast booking:</span> request, confirm, and start—no hassle.</li>
+                    <li><span class="list-tag">Built‑in chat:</span> discuss details and timing without sharing phone numbers.</li>
+                    <li><span class="list-tag">Safe payments:</span> card holds, receipts, and auto‑capture after completion.</li>
+                    <li><span class="list-tag">Verified pros:</span> ID checks add trust and safety.</li>
+                </ul>
+            </article>
+
+            <article class="card half">
+                <h2>Built for Our Community</h2>
+                <p>
+                    Unlike generic platforms, ProLynk understands the unique cultural needs of our users.
+                    Whether you’re planning a traditional event or want services rooted in your values — we’ve got you covered.
+                </p>
+                <ul>
+                    <li>🎉 Book priests and religious service providers for festivals & rituals</li>
+                    <li>🪘 Find classical dance and music tutors for kids and adults</li>
+                    <li>🍲 Hire home chefs for authentic regional meals</li>
+                    <li>📚 Discover language, culture, and community-focused services</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <details id="promo" class="collapse">
+                    <summary>Watch the ProLynk promo</summary>
+                    <video class="video" src="/Prolynk.MP4" controls preload="metadata" playsinline></video>
+                </details>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <details id="demos" class="collapse">
+                    <summary>See the app in action (demo videos)</summary>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start;">
+                        <figure class="demo">
+                            <video class="video" src="/ProLynkDemo1.mp4" controls preload="metadata" playsinline></video>
+                            <figcaption class="caption">Browse . Filter . Book</figcaption>
+                        </figure>
+                        <figure class="demo">
+                            <video class="video" src="/ProLynkDemo2.mp4" controls preload="metadata" playsinline></video>
+                            <figcaption class="caption">Track . Chat . Confirm</figcaption>
+                        </figure>
+                    </div>
+                </details>
+            </article>
+        </section>
+
+        <section id="how" class="grid">
+            <article class="card third">
+                <h2>1. Request</h2>
+                <p>Pick a service, share details, and submit your booking request to a pro.</p>
+            </article>
+            <article class="card third">
+                <h2>2. Chat & confirm</h2>
+                <p>Use the in‑app chat to align on scope, timing, and pricing before confirming.</p>
+            </article>
+            <article class="card third">
+                <h2>3. Pay securely</h2>
+                <p>We place a temporary hold at start. Payment is completed when the job finishes.</p>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card half">
+                <h2>Payments, the simple way</h2>
+                <p>
+                    ProLynk uses <span class="mono">Stripe</span> for secure card processing. For most bookings, a payment hold is placed when
+                    the provider starts, and it’s captured on completion. If you don’t review within 48 hours, your payment may be
+                    auto‑captured to finalize the booking seamlessly.
+                </p>
+                <p class="muted">We never store raw card data on our servers.</p>
+            </article>
+
+            <article class="card half">
+                <h2>Trust & verification</h2>
+                <p>
+                    Providers can complete an ID verification check to build trust. You’ll see verification status on profiles, helping you
+                    make confident choices.
+                </p>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card half">
+                <h2>For clients</h2>
+                <ul>
+                    <li>Discover pros by service and availability</li>
+                    <li>Message pros securely before confirming</li>
+                    <li>Pay with your saved card; receipts provided</li>
+                    <li>Leave a review to help others choose</li>
+                </ul>
+            </article>
+            <article class="card half">
+                <h2>For pros</h2>
+                <ul>
+                    <li>Quick onboarding with Stripe for payouts</li>
+                    <li>Quick ID verification with Stripe to boost trust</li>
+                    <li>Manage requests, chat, and booking status</li>
+                    <li>Fair, transparent payout process</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <h2>Cash bookings and fees</h2>
+                <p>
+                    If you choose to pay cash for a booking, a small platform fee may be charged to your saved card to keep the marketplace
+                    running. You’ll always see the amount before confirming.
+                </p>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article id="compare" class="card">
+                <h2>Platform comparison</h2>
+                <div style="overflow:auto;">
+                    <table style="width:100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,0.06);">Feature/Aspect</th>
+                                <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,0.06);">ProLynk</th>
+                                <th style="text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,0.06);">Other Platforms</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top; width:220px;"><strong>Core Focus</strong></td>
+                                <td style="padding:10px; vertical-align:top;">Community-first marketplace for trusted pros (cultural + personal services)</td>
+                                <td style="padding:10px; vertical-align:top;">Fast gigs for general services (cleaning, plumbing, etc.)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Cultural Support</strong></td>
+                                <td style="padding:10px; vertical-align:top;">✅ Priests, classical tutors, home chefs, language coaches, event helpers</td>
+                                <td style="padding:10px; vertical-align:top;">❌ Not optimized for cultural, traditional, or community services</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Pro Verification</strong></td>
+                                <td style="padding:10px; vertical-align:top;">✅ ID verification + completed profiles required for visibility</td>
+                                <td style="padding:10px; vertical-align:top;">❗Often low-barrier onboarding; trust varies by provider</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Payment Security</strong></td>
+                                <td style="padding:10px; vertical-align:top;">✅ Card hold (Stripe) with delayed capture post-service</td>
+                                <td style="padding:10px; vertical-align:top;">❗ Usually prepaid or direct pay; limited escrow-style safety</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Communication</strong></td>
+                                <td style="padding:10px; vertical-align:top;">✅ In-app chat before confirming a booking</td>
+                                <td style="padding:10px; vertical-align:top;">❗ Chat only after payment or confirmation</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Booking Flow</strong></td>
+                                <td style="padding:10px; vertical-align:top;">✅ Browse → Chat → Confirm with card hold → Review → Pay</td>
+                                <td style="padding:10px; vertical-align:top;">❗ Instant confirm, often without upfront interaction</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Target Audience</strong></td>
+                                <td style="padding:10px; vertical-align:top;">Indian diaspora + cultural communities + local professionals</td>
+                                <td style="padding:10px; vertical-align:top;">General public seeking quick one-time service</td>
+                            </tr>                            
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Platform Fees &amp; Transparency</strong></td>
+                                <td style="padding:10px; vertical-align:top;">Clear card-hold model; no fees for clients (cash bookings incur small fee)</td>
+                                <td style="padding:10px; vertical-align:top;">Often charges hidden service/platform fees</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px; vertical-align:top;"><strong>Customization &amp; Trust</strong></td>
+                                <td style="padding:10px; vertical-align:top;">Built around <strong>relationship and reliability</strong>, not just speed</td>
+                                <td style="padding:10px; vertical-align:top;">Optimized for speed and availability, not depth or trust</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            <div class="kicker">ProLynk</div>
+            <div class="muted">Connecting you with trusted professionals—safely and seamlessly.</div>
+            <!--<div style="margin-top:8px;">
+              <span class="muted">Have questions?</span> <a href="mailto:support@prolynk.com" style="color: #93c5fd; text-decoration: none;">support@prolynk.com</a>
+            </div>-->
+        </footer>
+    </div>
+        <script>
+            (function() {
+                function highlight(el) {
+                    if (!el) return;
+                    el.classList.add('flash');
+                    setTimeout(function() { el.classList.remove('flash'); }, 1200);
+                }
+
+                function openIfTarget(id) {
+                    var el = document.getElementById(id);
+                    if (!el) return;
+                    if (el.tagName.toLowerCase() === 'details') {
+                        el.open = true;
+                    }
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // briefly highlight non-details targets
+                    if (el.tagName.toLowerCase() !== 'details') highlight(el);
+                }
+
+                // handle direct links on load
+                if (location.hash === '#promo') openIfTarget('promo');
+                if (location.hash === '#demos') openIfTarget('demos');
+                if (location.hash === '#about') openIfTarget('about');
+                if (location.hash === '#compare') openIfTarget('compare');
+
+                // wire header buttons
+                document.getElementById('btn-promo')?.addEventListener('click', function(e) { e.preventDefault(); openIfTarget('promo'); history.replaceState(null,'', '#promo'); });
+                document.getElementById('btn-demos')?.addEventListener('click', function(e) { e.preventDefault(); openIfTarget('demos'); history.replaceState(null,'', '#demos'); });
+                document.getElementById('btn-about')?.addEventListener('click', function(e) { e.preventDefault(); openIfTarget('about'); history.replaceState(null,'', '#about'); });
+                document.getElementById('btn-how')?.addEventListener('click', function(e) { /* allow normal anchor behavior: scroll to #how */ });
+                document.getElementById('btn-compare')?.addEventListener('click', function(e) { e.preventDefault(); openIfTarget('compare'); history.replaceState(null,'', '#compare'); });
+            })();
+        </script>
+</body>
+</html>
