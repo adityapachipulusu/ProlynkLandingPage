@@ -136,11 +136,29 @@
             display: flex;
             gap: 8px;
             justify-content: center;
-            flex-wrap: nowrap; /* keep in one row */
-            overflow-x: auto;  /* allow horizontal scroll on very small screens */
+            flex-wrap: wrap;
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 4px;
             margin-top: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .cta-group {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 8px 0;
+            }
+            .cta {
+                min-width: 140px;
+                flex: 1 1 45%;
+                margin-right: 8px;
+                margin-bottom: 8px;
+                text-align: center;
+                font-size: 15px;
+                padding: 10px 8px;
+            }
+        }
         }
 
         .muted {
@@ -185,7 +203,11 @@
         }
 
     /* secondary hero tagline */
-    .subtag { margin-top: 6px; font-size: 14px; }
+    .subtag {
+        margin-top: 6px;
+        font-size: 12px;
+        font-style: italic;
+    }
 
         .video {
             width: 100%;
